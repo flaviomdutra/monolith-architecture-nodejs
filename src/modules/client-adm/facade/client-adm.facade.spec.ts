@@ -34,7 +34,7 @@ describe('ClientAdmFacade test', () => {
     await clientAdmFacade.add(input)
 
     const client = await ClientModel.findOne({
-      where: { name: input.name },
+      where: { id: input.id },
     })
 
     expect(client).toBeDefined()
