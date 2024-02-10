@@ -1,4 +1,4 @@
-import { AddClientUsecase } from './add-client.usecase'
+import { AddClientUseCase } from './add-client.usecase'
 
 const MockRepository = jest.fn(() => ({
   add: jest.fn(),
@@ -8,7 +8,7 @@ const MockRepository = jest.fn(() => ({
 describe('Add Client Usecase unit test', () => {
   it('should add a client', async () => {
     const repository = MockRepository()
-    const usecase = new AddClientUsecase(repository)
+    const usecase = new AddClientUseCase(repository)
 
     const input = {
       id: '123',

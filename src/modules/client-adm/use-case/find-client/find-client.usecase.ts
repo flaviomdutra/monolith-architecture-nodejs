@@ -1,10 +1,11 @@
+import { UseCaseInterface } from '../../../@shared/use-case/use-case.interface'
 import { ClientGateway } from '../../gateway/client.gateway'
 import {
   FindClientInputDto,
   FindClientOutputDto,
 } from './find-client.usecase.dto'
 
-export class FindClientUsecase {
+export class FindClientUseCase implements UseCaseInterface {
   private _clientRepository: ClientGateway
   constructor(clientRepository: ClientGateway) {
     this._clientRepository = clientRepository

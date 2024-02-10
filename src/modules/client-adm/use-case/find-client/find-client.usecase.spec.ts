@@ -1,6 +1,6 @@
 import { Id } from '../../../@shared/domain/value-object/id.value-object'
 import { Client } from '../../domain/client.entity'
-import { FindClientUsecase } from './find-client.usecase'
+import { FindClientUseCase } from './find-client.usecase'
 
 const client = new Client({
   id: new Id('123'),
@@ -16,7 +16,7 @@ const MockRepository = jest.fn(() => ({
 describe('Find Client Usecase unit test', () => {
   it('should find a client', async () => {
     const repository = MockRepository()
-    const usecase = new FindClientUsecase(repository)
+    const usecase = new FindClientUseCase(repository)
 
     const input = {
       id: '123',
