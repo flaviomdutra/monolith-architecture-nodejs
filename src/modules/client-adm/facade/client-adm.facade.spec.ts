@@ -43,4 +43,29 @@ describe('ClientAdmFacade test', () => {
     expect(client.email).toBe(input.email)
     expect(client.address).toBe(input.address)
   })
+
+  it('should find a client', async () => {
+    const clientAdmFacade = ClientAdmFacadeFactory.create()
+
+    const input = {
+      id: '123',
+      name: 'John Doe',
+      email: 'jonh.doe@email.com',
+      address: '1234 Elm Street',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }
+
+    await ClientModel.create(input)
+
+    const client = await clientAdmFacade.find({ id: input.id })
+
+    expect(client).toBeDefined()
+    expect(client.id).toBe(input.id)
+    expect(client.name).toBe(input.name)
+    expect(client.email).toBe(input.email)
+    expect(client.address).toBe(input.address)
+    expect(client.createdAt).toEqual(input.createdAt)
+    expect(client.updatedAt).toEqual(input.updatedAt)
+  })
 })
